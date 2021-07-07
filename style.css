@@ -1,0 +1,22 @@
+.booklist{
+    display: flex;
+    flex-direction: row;
+}
+.card{
+    background-color: aqua;
+    margin: 5px;
+    width: 13em;
+    height: 20em;
+}
+
+#bringform{
+    display: none;
+}
+
+#bringform.open{
+    display: block;
+    border: solid black;
+    width: 15em;
+    padding: 10px;
+    z-index: 1;    
+}
