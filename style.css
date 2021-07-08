@@ -1,13 +1,48 @@
-h1{
+body{
+    background: linear-gradient(to right, #093028, #237a57);
+}
+
+header{
     text-align: center;
+    font-family: 'Cabin', sans-serif;
+    padding: 2px;
+    color: rgb(255, 255, 255);
+}
+
+#newBtnContainer{
+    text-align: center;
+}
+
+#newBtn{
+    background:#237a57;
+    border: white solid;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#newBtn:hover{
+    transform: scale(1.2);
+}
+
+#formWrapper{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
 }
 
 #formUp{
     display: none;
-    border: solid black;
+    border: solid rgb(255, 255, 255);
     border-radius: 20px;
     width: 210px;
     padding: 10px;
+    margin-top: 2em;
 }
 
 #formBtn{
@@ -20,17 +55,27 @@ h1{
 
 #booksList{
     display: flex;
+    flex-wrap: wrap;
+    
 }
 
 .book{
     text-align: center;
-    font-size: 20px;
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Cabin', sans-serif;
     padding: 10px;
-    border: solid black;
+    border: solid rgb(252, 252, 252);
     border-radius: 20px;
-    background-color: cadetblue;
+    background-color: #237a57;
     width: 200px;
-    height: 300px;
+    height: 250px;
     padding: 10px;
     margin: 1em;
+}
+
+.title{
+    padding: 1em;
+    color: #0a322a;
+    font-weight: bold;
 }
