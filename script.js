@@ -1,4 +1,5 @@
 let myLibrary = [];
+let newBook;
 
 const formUp = document.querySelector('#formUp');
 const title = document.querySelector('#title');
@@ -19,12 +20,12 @@ closeFormBtn.addEventListener('click', ()=>formUp.style.display = 'none');
 
 //add book to our library and display it
 const addBookBtn = document.querySelector('#addBookBtn');
-addBookBtn.addEventListener('click', ()=>{
+addBookBtn.addEventListener('click', function(){
     addBookToLibrary();
-    displayBooks();
+    
 });
 
-
+//book constructor
 class Book {
     constructor(title, author, pages, status) {
         this.title = title;
@@ -34,19 +35,23 @@ class Book {
     }
 }
 
+//add book to array
 function addBookToLibrary(){
-    const newBook = new Book(title.value, author.value, pages.value, status.value);
+    event.preventDefault();
+    formUp.style.display = 'none';
+
+    newBook = new Book(title.value, author.value, pages.value, status.value);
     myLibrary.push(newBook);
-    console.log(myLibrary);  
+    displayBooks();
 }
 
+//display added books from array
 function displayBooks(){
-    const display = document.querySelector('#booksList');
     const books = document.querySelectorAll('.book');
-    books.forEach(book=>display.removeChild(book));
+    books.forEach(book => booksList.removeChild(book));
 
     for(let i=0; i<myLibrary.length; i++){
-        createCardOfBook(myLibrary[i]);
+        createCardOfBook();
     }
 }
 
