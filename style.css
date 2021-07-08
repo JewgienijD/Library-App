@@ -23,6 +23,7 @@ header{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
+    font-family: 'Cabin', sans-serif;
 }
 
 #newBtn:hover{
@@ -78,4 +79,22 @@ header{
     padding: 1em;
     color: #0a322a;
     font-weight: bold;
+}
+
+.pages{
+    padding-bottom: 20px;
+}
+
+button.deleteBtn{
+    background-color: rgb(134, 51, 51);
+    border: rgb(255, 255, 255) thin;
+    border-radius: 12px;
+    padding: 10px;
+    
+    
+}
+
+button.deleteBtn:hover{
+    transform: scale(1.1);
+    border: rgb(46, 11, 11) solid;
 }
