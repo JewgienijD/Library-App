@@ -22,7 +22,6 @@ closeFormBtn.addEventListener('click', ()=>formUp.style.display = 'none');
 const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', function(){
     addBookToLibrary();
-    
 });
 
 //book constructor
@@ -43,6 +42,7 @@ function addBookToLibrary(){
     newBook = new Book(title.value, author.value, pages.value, status.value);
     myLibrary.push(newBook);
     displayBooks();
+    
 }
 
 //display added books from array
@@ -51,38 +51,51 @@ function displayBooks(){
     books.forEach(book => booksList.removeChild(book));
 
     for(let i=0; i<myLibrary.length; i++){
-        createCardOfBook();
+        createCardOfBook(myLibrary[i]);
     }
 }
 
 //creat new card for each book
-function createCardOfBook(){
+function createCardOfBook(item){
     const library = document.querySelector('#booksList');
     const bookDiv = document.createElement('div');
     const titleDiv = document.createElement('div');
     const authorDiv = document.createElement('div');
     const pagesDiv = document.createElement('div');
     const statusDiv = document.createElement('div');
+    const deleteBtn = document.createElement('button');
 
     bookDiv.classList.add('book');
+    bookDiv.setAttribute('id', myLibrary.indexOf(item));
 
-    titleDiv.textContent = title.value;
+    titleDiv.textContent = item.title;
     titleDiv.classList.add('title');
     bookDiv.appendChild(titleDiv);
 
-    authorDiv.textContent = author.value;
+    authorDiv.textContent = item.author;
     authorDiv.classList.add('author');
     bookDiv.appendChild(authorDiv);
 
-    pagesDiv.textContent = pages.value;
+    pagesDiv.textContent = item.pages;
     pagesDiv.classList.add('pages');
     bookDiv.appendChild(pagesDiv);
 
-    statusDiv.textContent = status.value;
+    statusDiv.textContent = item.status;
     statusDiv.classList.add('status');
     bookDiv.appendChild(statusDiv);
-
+    
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.classList.add('deleteBtn');
+    deleteBtn.setAttribute('id', 'deleteBtn');
+    bookDiv.appendChild(deleteBtn);
+    
     library.appendChild(bookDiv);
+
+    deleteBtn.addEventListener('click', ()=>{
+        myLibrary.splice(myLibrary.indexOf(item),1);
+        displayBooks();
+    })
+
 }
 
 
