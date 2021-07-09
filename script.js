@@ -5,24 +5,25 @@ const formUp = document.querySelector('#formUp');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
-const status = document.querySelector('#isRead');
+const status = document.querySelector('#is-read');
 const booksList = document.querySelector('#booksList');
 
 
 //call form by clicking New Book button
 const newBookBtn = document.querySelector('#newBtn');
 newBookBtn.addEventListener('click',function(){
-    formUp.style.display = 'block';
+    formWrapper.style.display = 'block';
     
 });
 
 //close form by clicking close button
 const closeFormBtn = document.querySelector('#closeBtn');
-closeFormBtn.addEventListener('click', ()=>formUp.style.display = 'none');
+closeFormBtn.addEventListener('click', ()=>formWrapper.style.display = 'none');
 
 //add book to our library and display it
 const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', function(){
+    formWrapper.style.display = 'none';
     addBookToLibrary();
     
 });
@@ -33,15 +34,14 @@ class Book {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.status = status.checked;
+        this.status = status;
     }
 }
 
 //add book to array
 function addBookToLibrary(){
     event.preventDefault();
-    formUp.style.display = 'none';
-
+    
     newBook = new Book(title.value, author.value, pages.value, status.value);
     myLibrary.push(newBook);
     sendToStoreData();
@@ -89,16 +89,16 @@ function createCardOfBook(item){
     deleteBtn.setAttribute('id', 'deleteBtn');
     bookDiv.appendChild(deleteBtn);
 
-   /* readBtn.classList.add('readBtn');
+    readBtn.classList.add('readBtn');
     bookDiv.appendChild(readBtn);
-    if(item.status===true){
+    if(item.status=='true'){
         readBtn.style.backgroundColor = 'green';
         readBtn.textContent = 'Read'
     }
     else{
         readBtn.style.backgroundColor = 'red';
         readBtn.textContent = 'Not read'
-    }*/
+    }
 
     library.appendChild(bookDiv);
 
