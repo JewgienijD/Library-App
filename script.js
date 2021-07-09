@@ -1,4 +1,4 @@
-let myLibrary = [];
+let myLibrary = JSON.parse(localStorage.getItem('newBook'))||[];//check our local storage
 let newBook;
 
 const formUp = document.querySelector('#formUp');
@@ -7,12 +7,14 @@ const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const status = document.querySelector('#isRead');
 const booksList = document.querySelector('#booksList');
-const form = document.querySelectorAll('#form');
 
 
 //call form by clicking New Book button
 const newBookBtn = document.querySelector('#newBtn');
-newBookBtn.addEventListener('click',()=>formUp.style.display = 'block');
+newBookBtn.addEventListener('click',function(){
+    formUp.style.display = 'block';
+    
+});
 
 //close form by clicking close button
 const closeFormBtn = document.querySelector('#closeBtn');
@@ -22,6 +24,7 @@ closeFormBtn.addEventListener('click', ()=>formUp.style.display = 'none');
 const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', function(){
     addBookToLibrary();
+    
 });
 
 //book constructor
@@ -30,7 +33,7 @@ class Book {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.status = status;
+        this.status = status.checked;
     }
 }
 
@@ -41,8 +44,9 @@ function addBookToLibrary(){
 
     newBook = new Book(title.value, author.value, pages.value, status.value);
     myLibrary.push(newBook);
+    sendToStoreData();
     displayBooks();
-    
+        
 }
 
 //display added books from array
@@ -55,15 +59,15 @@ function displayBooks(){
     }
 }
 
-//creat new card for each book
+//create new card for each book
 function createCardOfBook(item){
     const library = document.querySelector('#booksList');
     const bookDiv = document.createElement('div');
     const titleDiv = document.createElement('div');
     const authorDiv = document.createElement('div');
     const pagesDiv = document.createElement('div');
-    const statusDiv = document.createElement('div');
     const deleteBtn = document.createElement('button');
+    const readBtn = document.createElement('button');
 
     bookDiv.classList.add('book');
     bookDiv.setAttribute('id', myLibrary.indexOf(item));
@@ -76,28 +80,49 @@ function createCardOfBook(item){
     authorDiv.classList.add('author');
     bookDiv.appendChild(authorDiv);
 
-    pagesDiv.textContent = item.pages;
+    pagesDiv.textContent = item.pages+ ' pages';
     pagesDiv.classList.add('pages');
     bookDiv.appendChild(pagesDiv);
 
-    statusDiv.textContent = item.status;
-    statusDiv.classList.add('status');
-    bookDiv.appendChild(statusDiv);
-    
-    deleteBtn.textContent = 'Delete';
+    deleteBtn.textContent = 'DELETE';
     deleteBtn.classList.add('deleteBtn');
     deleteBtn.setAttribute('id', 'deleteBtn');
     bookDiv.appendChild(deleteBtn);
-    
+
+   /* readBtn.classList.add('readBtn');
+    bookDiv.appendChild(readBtn);
+    if(item.status===true){
+        readBtn.style.backgroundColor = 'green';
+        readBtn.textContent = 'Read'
+    }
+    else{
+        readBtn.style.backgroundColor = 'red';
+        readBtn.textContent = 'Not read'
+    }*/
+
     library.appendChild(bookDiv);
 
     deleteBtn.addEventListener('click', ()=>{
         myLibrary.splice(myLibrary.indexOf(item),1);
+        sendToStoreData();
         displayBooks();
     })
 
+    /*readBtn.addEventListener('click', ()=>{
+        if(item.status=!item.status){readBtn.style.backgroundColor = 'green'}
+        else{readBtn.style.color='red'}
+        
+    })*/
+
 }
 
+//send and stores data to local storage
+function sendToStoreData(){
+    localStorage.setItem('newBook', JSON.stringify(myLibrary));     
+}
+
+//refresh our page
+displayBooks();
 
 
 
