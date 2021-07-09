@@ -31,19 +31,36 @@ header{
 }
 
 #formWrapper{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    position: relative;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color:rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    
 }
 
 #formUp{
-    display: none;
-    border: solid rgb(255, 255, 255);
-    border-radius: 20px;
-    width: 210px;
-    padding: 10px;
-    margin-top: 2em;
+    margin-top: 5em;
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1rem 1rem;
+    border: solid 1px #d3d3d3;
+    border-radius: 12px;
+    position: relative;
+    background-color: #fff;
+            
+}
+
+#pform{
+    margin-bottom: 0px;
 }
 
 #formBtn{
@@ -90,7 +107,7 @@ button.deleteBtn{
     border: rgb(255, 255, 255) thin;
     border-radius: 12px;
     padding: 10px;
-    
+    cursor: pointer;   
     
 }
 
