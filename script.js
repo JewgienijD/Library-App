@@ -98,9 +98,9 @@ function createCardOfBook(item){
 
     readBtn.classList.add('readBtn');
     bookDiv.appendChild(readBtn);
-    if(item.status=='true'){
+    if(item.status == 1){
         readBtn.style.backgroundColor = 'green';
-        readBtn.textContent = 'READ'
+        readBtn.textContent = 'READ';
     }
     else{
         readBtn.style.backgroundColor = 'rgb(134, 51, 51)';
@@ -117,8 +117,10 @@ function createCardOfBook(item){
 
     readBtn.addEventListener('click', ()=>{
         item.status = !item.status;
+        
         sendToStoreData();
-        displayBooks();
+        displayBooks();           
+        
     })
 
 }
@@ -127,6 +129,7 @@ function createCardOfBook(item){
 function sendToStoreData(){
     localStorage.setItem('newBook', JSON.stringify(myLibrary));     
 }
+
 
 //refresh our page
 displayBooks();
