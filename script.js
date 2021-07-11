@@ -9,11 +9,11 @@ const status = document.querySelector('#is-read');
 const booksList = document.querySelector('#booksList');
 
 
-//call form by clicking New Book button
+//open form by clicking New Book button
 const newBookBtn = document.querySelector('#newBtn');
 newBookBtn.addEventListener('click',function(){
     formWrapper.style.display = 'block';
-    
+    form.reset();
 });
 
 //close form by clicking close button
@@ -25,7 +25,14 @@ const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', function(){
     formWrapper.style.display = 'none';
     addBookToLibrary();
-    
+});
+
+//clean form by clicking clean button
+const cleanFormBtn = document.querySelector('#cleanBtn')
+cleanFormBtn.addEventListener('click',()=>{
+    event.preventDefault();
+    form.reset();
+       
 });
 
 //book constructor
@@ -93,11 +100,11 @@ function createCardOfBook(item){
     bookDiv.appendChild(readBtn);
     if(item.status=='true'){
         readBtn.style.backgroundColor = 'green';
-        readBtn.textContent = 'Read'
+        readBtn.textContent = 'READ'
     }
     else{
-        readBtn.style.backgroundColor = 'red';
-        readBtn.textContent = 'Not read'
+        readBtn.style.backgroundColor = 'rgb(134, 51, 51)';
+        readBtn.textContent = 'NOT READ'
     }
 
     library.appendChild(bookDiv);
@@ -108,11 +115,11 @@ function createCardOfBook(item){
         displayBooks();
     })
 
-    /*readBtn.addEventListener('click', ()=>{
-        if(item.status=!item.status){readBtn.style.backgroundColor = 'green'}
-        else{readBtn.style.color='red'}
-        
-    })*/
+    readBtn.addEventListener('click', ()=>{
+        item.status = !item.status;
+        sendToStoreData();
+        displayBooks();
+    })
 
 }
 
