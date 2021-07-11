@@ -20,11 +20,15 @@ newBookBtn.addEventListener('click',function(){
 const closeFormBtn = document.querySelector('#closeBtn');
 closeFormBtn.addEventListener('click', ()=>formWrapper.style.display = 'none');
 
-//add book to our library and display it
+//add book to our library and display it after validation
 const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', function(){
-    formWrapper.style.display = 'none';
-    addBookToLibrary();
+    if(title.value == ''||author.value==''||pages.value==''){
+        return formWrapper.style.display = 'block';}
+        formWrapper.style.display = 'none';
+        addBookToLibrary();
+    
+       
 });
 
 //clean form by clicking clean button
@@ -103,7 +107,7 @@ function createCardOfBook(item){
         readBtn.textContent = 'READ';
     }
     else{
-        readBtn.style.backgroundColor = 'rgb(134, 51, 51)';
+        readBtn.style.backgroundColor = 'rgb(226, 19, 19)';
         readBtn.textContent = 'NOT READ'
     }
 
@@ -129,7 +133,6 @@ function createCardOfBook(item){
 function sendToStoreData(){
     localStorage.setItem('newBook', JSON.stringify(myLibrary));     
 }
-
 
 //refresh our page
 displayBooks();
