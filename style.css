@@ -9,6 +9,7 @@ header{
     color: rgb(255, 255, 255);
 }
 
+/*Button NEW BOOK */
 #newBtnContainer{
     text-align: center;
 }
@@ -30,6 +31,8 @@ header{
     transform: scale(1.2);
 }
 
+
+/*Adding new book FORM */
 #formWrapper{
     width: 100vw;
     height: 100vh;
@@ -71,12 +74,54 @@ header{
     text-align: right;
 }
 
+#closeBtn{
+    border-radius: 50%;
+    border-color: black;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+#closeBtn:hover{
+    background-color: rgb(134, 51, 51);
+}
+
+#formBtn{
+    margin-top: 20px;
+}
+
+#addBookBtn{
+    background-color: #237a57;
+    border: rgb(255, 255, 255) thin;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer; 
+}
+
+#addBookBtn:hover{
+    border:  #076841 solid;
+}
+
+#cleanBtn{
+    background-color: rgb(134, 51, 51);
+    border: rgb(255, 255, 255) thin;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer; 
+}
+
+#cleanBtn:hover{
+    border: rgb(46, 11, 11) solid;    
+}
+
+/*New book card's div */
 #booksList{
     display: flex;
     flex-wrap: wrap;
     
 }
 
+/*Separate cards with new books*/
 .book{
     text-align: center;
     color: #fff;
@@ -115,3 +160,17 @@ button.deleteBtn:hover{
     transform: scale(1.1);
     border: rgb(46, 11, 11) solid;
 }
+
+button.readBtn{
+    border: rgb(255, 255, 255) thin;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 6px;
+    width: 90px; 
+}
+
+button.readBtn:hover{
+    transform: scale(1.1);
+}
+
