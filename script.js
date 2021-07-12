@@ -27,8 +27,6 @@ addBookBtn.addEventListener('click', function(){
         return formWrapper.style.display = 'block';}
         formWrapper.style.display = 'none';
         addBookToLibrary();
-    
-       
 });
 
 //clean form by clicking clean button
@@ -36,7 +34,6 @@ const cleanFormBtn = document.querySelector('#cleanBtn')
 cleanFormBtn.addEventListener('click',()=>{
     event.preventDefault();
     form.reset();
-       
 });
 
 //book constructor
@@ -57,7 +54,6 @@ function addBookToLibrary(){
     myLibrary.push(newBook);
     sendToStoreData();
     displayBooks();
-        
 }
 
 //display added books from array

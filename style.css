@@ -44,6 +44,7 @@ header{
     backdrop-filter: blur(2px);
     display: none;
     align-items: center;
+    font-family: 'Cabin', sans-serif;
     
 }
 
@@ -51,7 +52,7 @@ header{
     margin-top: 5em;
     margin-right: auto;
     margin-left: auto;
-    width: max-content;
+    width: 20rem;
     font-size: 1rem;
     text-align: center;
     padding: 1rem 1rem;
@@ -59,7 +60,6 @@ header{
     border-radius: 12px;
     position: relative;
     background-color: #fff;
-            
 }
 
 #pform{
@@ -118,7 +118,6 @@ header{
 #booksList{
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 /*Separate cards with new books*/
@@ -153,7 +152,6 @@ button.deleteBtn{
     border-radius: 12px;
     padding: 10px;
     cursor: pointer;   
-    
 }
 
 button.deleteBtn:hover{

@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Library App</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@1&display=swap" rel="stylesheet">
         <link href = "style.css" rel = "stylesheet" type = "text/css">
-    </head>
+        <title>Library App</title>
+      </head>
     <body>
-        <div class = "webform">
-          <button id = "newbook">New Book</button>
-          <div id = "bringform">
-          <form role = "form" action="/requestFine" autocomplete="off" method="POST">
-            <label for= "title">Title:</label>
-            <input type = "text" id = "title" name = "title">
-            
-            <label for= "author">Author:</label>
-            <input type = "text" id = "author" name = "author">
-
-            <label for= "pages">Pages</label>
-            <input type = "text" id = "pages" name="pages">
-
-            <label for= "status">Read</label>
-            <input type = "checkbox" id = "status" name = "status">
-
-            <button id = "addinform">Add</button>
-          </form>
+      <header>
+        <h1>Library</h1>
+        <h3>Please, add your favourite books below</h3>
+      </header>
+    
+    <div id = 'newBtnContainer'>
+      <button id = 'newBtn'>NEW BOOK</button>
+    </div>
+    <div id = 'formWrapper'>
+      <div id = 'formUp'>
+        <form id = 'form'>
+          <div id = 'closeFormBtn'>
+            <button id = 'closeBtn'>x</button>
           </div>
-        </div>
-        <div class = "booklist">
+          <div id = 'textInput'>
+            <h2>Add new book</h2>
+            <p id = 'pform'><label for = 'title'>Title:</label></p>
+            <input type = 'text' id = 'title' name='title' placeholder='title' required>
+            <p id = 'pform'><label for = 'author'>Author:</label></p>
+            <input type = 'text' id = 'author' name='author' placeholder='author' required>
+            <p id = 'pform'><label for = 'pages'>Pages:</label></p>
+            <input type = 'number' id = 'pages' name='pages' placeholder='pages' required>
+            <p id = 'pform'><label for = 'is-read'>Read:</label></p>
+            <select id = 'is-read' name='status' required>
+              <option value = 'null' disabled selected>did you read the book?</option>
+              <option value = '1'>i already read it</option>
+              <option value = '2'>i haven't read it yet</option>
+            </select>
+          </div>
+          
+          <div id = 'formBtn'>
+            <button type = 'submit' id = 'addBookBtn'>ADD</button>
+            <button id = 'cleanBtn'>CLEAN</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
 
-        </div>
+    <div id ='booksList'></div>
     </body>
     <script src = "script.js"></script>
 </html>
