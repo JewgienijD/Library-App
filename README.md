@@ -1,5 +1,5 @@
 # Library
-This project is a part of The Odin Project - https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library
+This project is a part of training course ["The Odin Project"](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library)
 
 [LIVE DEMO](https://sirjohnsem.github.io/Library-App/)
 
