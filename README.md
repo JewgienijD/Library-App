@@ -1,7 +1,7 @@
 # Library
 This project is a part of training course ["The Odin Project"](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library)
 
-[LIVE DEMO](https://sirjohnsem.github.io/Library-App/)
+[LIVE DEMO](https://jewgienijd.github.io/Library-App/)
 
 # Project assignments
 - use function(object) constructors
