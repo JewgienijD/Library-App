@@ -10,5 +10,5 @@ This project is a part of training course ["The Odin Project"](https://www.theod
 
 # User stories
 - user can add a new book to the library  
-- user can exchange read-status  
+- user can change read-status  
 - user can remove a book from the library 
